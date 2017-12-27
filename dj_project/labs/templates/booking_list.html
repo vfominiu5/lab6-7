@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Бронирования{% endblock %}
+
+{% block main_block %}
+<h1 style="text-align: center">Бронирования</h1>
+{% for book in object_list %}
+    <div class="main_block_elem">
+        <h2>{{ book.user.last_name }} {{ book.user.first_name }} - {{ book.hotel.name }}</h2>
+        Даты: {{ book.start_date }} - {{ book.end_date }}<br>
+        Стоимость: {{ book.price }}
+    </div>
+{%  empty %}
+    <div class="main_block_elem">
+        <h2>Пока ни одной брони</h2>
+    </div>
+{% endfor %}
+{% endblock %}

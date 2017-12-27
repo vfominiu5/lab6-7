@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Пользователи{% endblock %}
+
+{% block main_block %}
+<h1 style="text-align: center">Пользователи</h1>
+{% for traveler in object_list %}
+    <div class="main_block_elem">
+        <h2>{{ traveler.first_name }} {{ traveler.last_name }}</h2>
+        username: {{ traveler.user.username }}<br>
+        email: {{ traveler.user.email }}<br>
+    </div>
+{%  empty %}
+    <div class="main_block_elem">
+        <h2>Пока ни одного пользователя</h2>
+    </div>
+{% endfor %}
+{% endblock %}
